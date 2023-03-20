@@ -121,6 +121,12 @@ To run the project, execute the following command:
 - Twitter: [Kashif](https://twitter.com/Kashif14Saleem)
 - LinkedIn: [Kashif](https://www.linkedin.com/in/kashifsaleemghuman/)
 
+👤 **Ellon M**
+
+- GitHub: [@githubhandle](https://github.com/Ellon-M)
+- Twitter: [@twitterhandle](https://twitter.com/ellonm4)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/ellon-m)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
