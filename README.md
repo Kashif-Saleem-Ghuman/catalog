@@ -115,11 +115,11 @@ To run the project, execute the following command:
 - Twitter: [@kriznode](https://twitter.com/kriznode)
 - LinkedIn: [Christian Ani](https://www.linkedin.com/in/anikriz/)
 
-**Leehaney George**
+👤 **Kashif**
 
-- GitHub: [@githubhandle](https://github.com/leehaney254)
-- Twitter: [@twitterhandle](https://twitter.com/Lee06785586)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/leehaney-george-0a4a51178/)
+- GitHub: [Kashif](https://github.com/Kashif-Saleem-Ghuman)
+- Twitter: [Kashif](https://twitter.com/Kashif14Saleem)
+- LinkedIn: [Kashif](https://www.linkedin.com/in/kashifsaleemghuman/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
