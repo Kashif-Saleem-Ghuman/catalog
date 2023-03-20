@@ -8,4 +8,9 @@ class Item
     @publish_date = publish_date
     @archived = archived
   end
+
+  def can_be_archived?
+    @publish_date > 10
+  end
+
 end
