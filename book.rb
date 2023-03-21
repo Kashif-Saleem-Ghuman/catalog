@@ -6,6 +6,6 @@ class Book < Item
   end
 
   def can_be_archived
-    @publish_date > 10 && @cover_state == :bad
+    @publish_date > 10 || @cover_state == :bad
   end
 end
