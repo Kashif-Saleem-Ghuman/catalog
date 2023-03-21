@@ -21,9 +21,9 @@ class Item
     @archived = can_be_archived?
   end
 
-  def add_label(label)
+  def add_label=(label)
     @label = label
-    label.add_item(self)
+    label.items << self unless label.items.include?(self)
   end
 
   def add_genre=(genre)
