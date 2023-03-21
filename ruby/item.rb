@@ -23,8 +23,8 @@ class Item
   private :can_be_archived?
 end
 
-ani = Item.new("20/03/2000")
-osas = Item.new("20/03/2019")
+ani = Item.new('20/03/2000')
+osas = Item.new('20/03/2019')
 
 puts ani.move_to_archive
 
