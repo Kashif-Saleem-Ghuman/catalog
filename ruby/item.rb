@@ -19,13 +19,4 @@ class Item
   def move_to_archive
     @archived = can_be_archived?
   end
-
-  private :can_be_archived?
 end
-
-ani = Item.new('20/03/2000')
-osas = Item.new('20/03/2019')
-
-puts ani.move_to_archive
-
-puts osas.move_to_archive
