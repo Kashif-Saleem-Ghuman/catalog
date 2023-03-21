@@ -19,4 +19,9 @@ class Item
   def move_to_archive
     @archived = can_be_archived?
   end
+
+  def add_genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
+  end
 end
