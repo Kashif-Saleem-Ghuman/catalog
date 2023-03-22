@@ -1,6 +1,7 @@
 require_relative './music_album'
 require_relative './genre'
 require_relative './book'
+require_relative './label'
 
 class App
   attr_reader :albums, :genres, :books
@@ -9,6 +10,7 @@ class App
     @albums = []
     @genres = []
     @books = []
+    @labels = []
   end
 
   def list_music_albums
@@ -87,5 +89,15 @@ class App
   def exit_app
     puts 'Thank you for using our application'
     exit
+  end
+
+  def list_all_labels
+    if @labels.empty?
+      puts 'No labels present'
+    else
+      @labels.each do |label|
+        puts "ID: #{label.id}, Label Name: #{label.name}"
+      end
+    end
   end
 end

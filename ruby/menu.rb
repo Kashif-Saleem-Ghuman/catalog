@@ -11,9 +11,10 @@ class Menu
       1 => 'List all Albums',
       2 => 'List all Genres',
       3 => 'List all books',
-      4 => 'Create an Album',
-      5 => 'Create a Book',
-      6 => 'Exit'
+      4 => 'List all Labels',
+      5 => 'Create an Album',
+      6 => 'Create a Book',
+      7 => 'Exit'
     }
     @lists.each do |id, option|
       puts "#{id}: #{option}"
@@ -31,13 +32,15 @@ class Menu
       when 3
         @app.list_books
       when 4
-        @app.add_music_album
+        @app.list_all_labels
       when 5
-        @app.add_book
+        @app.add_music_album
       when 6
+        @app.add_book
+      when 7
         @app.exit_app
       else
-        puts 'Please choose a number between 1 and 6'
+        puts 'Please choose a number between 1 and 7'
       end
     end
   end
