@@ -15,10 +15,11 @@ class Menu
       5 => 'List all Games',
       6 => 'List all Authors',
       7 => 'Create an Album',
-      8 => 'Create a Book',
-      9 => 'Create a Game',
+      8 => 'Create a Genre',
+      9 => 'Create a Book',
       10 => 'Create a Label',
-      11 => 'Exit'
+      11 => 'Create a Game',
+      12 => 'Exit'
     }
     @lists.each do |id, option|
       puts "#{id}: #{option}"
@@ -44,15 +45,17 @@ class Menu
       when 7
         @app.add_music_album
       when 8
-        @app.add_book
+        @app.add_genre
       when 9
-        @app.add_game
+        @app.add_book
       when 10
         @app.add_label
       when 11
+        @app.add_game
+      when 12
         @app.exit_app
       else
-        puts 'Please choose a number between 1 and 10'
+        puts 'Please choose a number between 1 and 12'
       end
     end
   end

@@ -19,6 +19,8 @@ class App
 
     load_books
     load_label
+    load_music_album
+    load_genre
   end
 
   def list_music_albums
@@ -42,9 +44,9 @@ class App
   end
 
   def fetch_album_details
-    puts 'Publish Date: '
+    print 'Publish Date: '
     date = gets.chomp
-    puts 'Is it on Spotify? (true/false): '
+    print 'Is it on Spotify? (true/false): '
     spotify_value = gets.chomp
     case spotify_value
     when 'true'
@@ -63,6 +65,21 @@ class App
     each_album = MusicAlbum.new(album_details[:date], album_details[:on_spotify])
     @albums << each_album
     puts 'Album successfully added'
+    store_music_album
+  end
+
+  def fetch_genre_details
+    print 'Name: '
+    name = gets.chomp
+    { name: name }
+  end
+
+  def add_genre
+    genre_details = fetch_genre_details
+    each_genre = Genre.new(genre_details[:name])
+    @genres << each_genre
+    puts 'Genre successfully added'
+    store_genre
   end
 
   def list_books
