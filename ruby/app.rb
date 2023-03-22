@@ -1,12 +1,15 @@
 require_relative './music_album'
 require_relative './genre'
+require_relative './book'
+
 
 class App
-  attr_reader :albums, :genres
+  attr_reader :albums, :genres, :books
 
   def initialize
     @albums = []
     @genres = []
+    @books = []
   end
 
   def list_music_albums
@@ -50,5 +53,39 @@ class App
     each_album = MusicAlbum.new(album_details[:date], album_details[:on_spotify])
     @albums << each_album
     puts 'Album successfully added'
+  end
+
+  def list_books
+    if @books.empty?
+      puts 'No books present'
+    else
+      @books.each do |book|
+        puts "Publish Date: #{book.publish_date}, Cover State: #{book.cover_state}"
+      end
+    end
+  end
+
+  def add_book
+    puts 'Please enter the name of the book: '
+    name = gets.chomp
+    puts 'Please enter the name of the publisher: '
+    publisher = gets.chomp
+    puts 'Please enter the cover state: good/bad'
+    cover_state = gets.chomp
+    if cover_state != 'good' && cover_state != 'bad'
+      puts 'Invalid cover state'
+      return
+    end
+    puts 'Please enter the publish date: '
+    date = gets.chomp
+    puts date
+    each_book = Book.new(name, publisher, cover_state, date)
+    @books << each_book
+    puts 'Book successfully added'
+  end
+
+  def exit_app
+    puts 'Thank you for using our application'
+    exit 
   end
 end
