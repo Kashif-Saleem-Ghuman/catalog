@@ -9,14 +9,14 @@ def store_books
       publish_date: book.publish_date
     }
   end
-  File.new('books.json', 'w') unless File.exist?('books.json')
-  File.write('books.json', JSON.generate(book_store))
+  File.new('data/books.json', 'w') unless File.exist?('data/books.json')
+  File.write('data/books.json', JSON.generate(book_store))
 end
 
 def load_books
-  return unless File.exist?('books.json')
+  return unless File.exist?('data/books.json')
 
-  books = JSON.parse(File.read('books.json'))
+  books = JSON.parse(File.read('data/books.json'))
   books.each do |book|
     book = Book.new(book['name'], book['publisher'], book['cover_state'], book['publish_date'])
     @books << book
@@ -30,14 +30,14 @@ def store_label
       color: label.color
     }
   end
-  File.new('labels.json', 'w') unless File.exist?('labels.json')
-  File.write('labels.json', JSON.generate(label_store))
+  File.new('data/labels.json', 'w') unless File.exist?('data/labels.json')
+  File.write('data/labels.json', JSON.generate(label_store))
 end
 
 def load_label
-  return unless File.exist?('labels.json')
+  return unless File.exist?('data/labels.json')
 
-  labels = JSON.parse(File.read('labels.json'))
+  labels = JSON.parse(File.read('data/labels.json'))
   labels.each do |label|
     label = Label.new(label['name'], label['color'])
     @labels << label
@@ -51,14 +51,14 @@ def store_music_album
       on_spotify: album.on_spotify
     }
   end
-  File.new('music_albums.json', 'w') unless File.exist?('music_albums.json')
-  File.write('music_albums.json', JSON.generate(music_album_store))
+  File.new('data/music_albums.json', 'w') unless File.exist?('data/music_albums.json')
+  File.write('data/music_albums.json', JSON.generate(music_album_store))
 end
 
 def load_music_album
-  return unless File.exist?('music_albums.json')
+  return unless File.exist?('data/music_albums.json')
 
-  albums = JSON.parse(File.read('music_albums.json'))
+  albums = JSON.parse(File.read('data/music_albums.json'))
   albums.each do |album|
     album = MusicAlbum.new(album['publish_date'], album['on_spotify'])
     @albums << album
@@ -71,16 +71,61 @@ def store_genre
       name: genre.name
     }
   end
-  File.new('genres.json', 'w') unless File.exist?('genres.json')
-  File.write('genres.json', JSON.generate(genre_store))
+  File.new('data/genres.json', 'w') unless File.exist?('data/genres.json')
+  File.write('data/genres.json', JSON.generate(genre_store))
 end
 
 def load_genre
-  return unless File.exist?('genres.json')
+  return unless File.exist?('data/genres.json')
 
-  genres = JSON.parse(File.read('genres.json'))
+  genres = JSON.parse(File.read('data/genres.json'))
   genres.each do |genre|
     genre = Genre.new(genre['name'])
     @genres << genre
+  end
+end
+
+
+def store_game
+  game_store = @games.map do |game|
+    {
+      publish_date: game.publish_date,
+      multiplayer: game.mutliplayer,
+      last_played_at: game.last_played_at,
+    }
+  end
+  File.new('data/games.json', 'w') unless File.exist?('data/games.json')
+  File.write('data/games.json', JSON.generate(game_store))
+end
+
+def load_games
+  return unless File.exist?('data/games.json')
+
+  games = JSON.parse(File.read('data/games.json'))
+  games.each do |game|
+    game = MusicAlbum.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
+    @games << game
+  end
+end
+
+def store_author
+  author_store = @authors.map do |author|
+    {
+      id: author.id
+      first_name: author.first_name
+      last_name: author.last_name
+    }
+  end
+  File.new('data/authors.json', 'w') unless File.exist?('data/authors.json')
+  File.write('data/authors.json', JSON.generate(author_store))
+end
+
+def load_author
+  return unless File.exist?('data/authors.json')
+
+  authors = JSON.parse(File.read('data/authors.json'))
+  authors.each do |author|
+    author = Genre.new(author['name'])
+    @authors << author
   end
 end
