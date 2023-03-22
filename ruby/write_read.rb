@@ -22,3 +22,24 @@ def load_books
     @books << book
   end
 end
+
+def store_label
+  label_store = @labels.map do |label|
+    {
+      name: label.title,
+      color: label.color
+    }
+  end
+  File.new('labels.json', 'w') unless File.exist?('labels.json')
+  File.write('labels.json', JSON.generate(label_store))
+end
+
+def load_label
+  return unless File.exist?('labels.json')
+
+  labels = JSON.parse(File.read('labels.json'))
+  labels.each do |label|
+    label = Label.new(label['name'], label['color'])
+    @labels << label
+  end
+end

@@ -18,6 +18,7 @@ class App
     @authors = []
 
     load_books
+    load_label
   end
 
   def list_music_albums
@@ -104,7 +105,7 @@ class App
       puts 'No labels present'
     else
       @labels.each do |label|
-        puts "ID: #{label.id}, Label Name: #{label.name}"
+        puts "ID: #{label.id}, Label Name: #{label.title}, Label Color: #{label.color}"
       end
     end
   end
@@ -147,5 +148,16 @@ class App
     new_game = Game.new(pub_date, is_multiplayer, last_played)
     @games << new_game
     puts 'Game added successfully'
+  end
+
+  def add_label
+    puts 'Label Name: '
+    label_name = gets.chomp
+    puts 'Label color: '
+    label_color = gets.chomp
+    new_label = Label.new(label_name, label_color)
+    @labels << new_label
+    puts 'Label added successfully'
+    store_label
   end
 end
