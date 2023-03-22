@@ -85,13 +85,12 @@ def load_genre
   end
 end
 
-
 def store_game
   game_store = @games.map do |game|
     {
       publish_date: game.publish_date,
       multiplayer: game.mutliplayer,
-      last_played_at: game.last_played_at,
+      last_played_at: game.last_played_at
     }
   end
   File.new('data/games.json', 'w') unless File.exist?('data/games.json')
@@ -111,8 +110,8 @@ end
 def store_author
   author_store = @authors.map do |author|
     {
-      id: author.id
-      first_name: author.first_name
+      id: author.id,
+      first_name: author.first_name,
       last_name: author.last_name
     }
   end
