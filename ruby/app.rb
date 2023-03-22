@@ -130,9 +130,9 @@ class App
     pub_date = gets.chomp
     puts 'Multiplayer? (Y/N): '
     multiplayer = gets.chomp
-    if multiplayer == 'Y' || multiplayer == 'y'
+    if %w[Y y].include?(multiplayer)
       is_multiplayer = true
-    elsif multiplayer == 'N' || multiplayer == 'n'
+    elsif %w[N n].include?(multiplayer)
       is_multiplayer = false
     else
       puts "Invalid value detected: #{mutliplayer}"
