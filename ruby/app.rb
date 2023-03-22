@@ -2,6 +2,7 @@ require_relative './music_album'
 require_relative './genre'
 require_relative './book'
 require_relative './label'
+require_relative 'write_read'
 
 class App
   attr_reader :albums, :genres, :books
@@ -11,6 +12,8 @@ class App
     @genres = []
     @books = []
     @labels = []
+
+    load_books
   end
 
   def list_music_albums
@@ -84,6 +87,7 @@ class App
     each_book = Book.new(name, publisher, cover_state, date)
     @books << each_book
     puts 'Book successfully added'
+    store_books
   end
 
   def exit_app
