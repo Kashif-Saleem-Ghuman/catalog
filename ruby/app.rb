@@ -60,7 +60,7 @@ class App
       puts 'No books present'
     else
       @books.each do |book|
-        puts "Publish Date: #{book.publish_date}, Cover State: #{book.cover_state}"
+        puts "Name: #{book.name}, Publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
       end
     end
   end
