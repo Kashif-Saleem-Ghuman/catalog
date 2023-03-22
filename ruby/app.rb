@@ -2,6 +2,7 @@ require_relative './music_album'
 require_relative './genre'
 require_relative './book'
 require_relative './label'
+require_relative 'write_read'
 require_relative './game'
 require_relative './author'
 
@@ -15,6 +16,9 @@ class App
     @labels = []
     @games = []
     @authors = []
+
+    load_books
+    load_label
   end
 
   def list_music_albums
@@ -88,6 +92,7 @@ class App
     each_book = Book.new(name, publisher, cover_state, date)
     @books << each_book
     puts 'Book successfully added'
+    store_books
   end
 
   def exit_app
@@ -100,7 +105,7 @@ class App
       puts 'No labels present'
     else
       @labels.each do |label|
-        puts "ID: #{label.id}, Label Name: #{label.name}"
+        puts "ID: #{label.id}, Label Name: #{label.title}, Label Color: #{label.color}"
       end
     end
   end
@@ -143,5 +148,16 @@ class App
     new_game = Game.new(pub_date, is_multiplayer, last_played)
     @games << new_game
     puts 'Game added successfully'
+  end
+
+  def add_label
+    puts 'Label Name: '
+    label_name = gets.chomp
+    puts 'Label color: '
+    label_color = gets.chomp
+    new_label = Label.new(label_name, label_color)
+    @labels << new_label
+    puts 'Label added successfully'
+    store_label
   end
 end

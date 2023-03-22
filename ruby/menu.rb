@@ -17,7 +17,8 @@ class Menu
       7 => 'Create an Album',
       8 => 'Create a Book',
       9 => 'Create a Game',
-      10 => 'Exit'
+      10 => 'Create a Label',
+      11 => 'Exit'
     }
     @lists.each do |id, option|
       puts "#{id}: #{option}"
@@ -47,6 +48,8 @@ class Menu
       when 9
         @app.add_game
       when 10
+        @app.add_label
+      when 11
         @app.exit_app
       else
         puts 'Please choose a number between 1 and 10'
