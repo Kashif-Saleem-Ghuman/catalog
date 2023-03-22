@@ -53,9 +53,11 @@ class Menu
       when 11
         @app.add_game
       when 12
+        @app.add_author
+      when 13
         @app.exit_app
       else
-        puts 'Please choose a number between 1 and 12'
+        puts 'Please choose a number between 1 and 13'
       end
     end
   end
