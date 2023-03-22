@@ -21,6 +21,8 @@ class App
     load_label
     load_music_album
     load_genre
+    load_games
+    load_author
   end
 
   def list_music_albums
@@ -165,6 +167,18 @@ class App
     new_game = Game.new(pub_date, is_multiplayer, last_played)
     @games << new_game
     puts 'Game added successfully'
+    store_game
+  end
+
+  def add_author
+    puts 'Author First Name: '
+    f_name = gets.chomp
+    puts 'Author Last Name: '
+    l_name = gets.chomp
+    new_author = Author.new(f_name, l_name)
+    @authors << new_author
+    puts 'Author added successfully'
+    store_author
   end
 
   def add_label
