@@ -2,7 +2,6 @@ require_relative './music_album'
 require_relative './genre'
 require_relative './book'
 
-
 class App
   attr_reader :albums, :genres, :books
 
@@ -37,9 +36,10 @@ class App
     date = gets.chomp
     puts 'Is it on Spotify? (true/false): '
     spotify_value = gets.chomp
-    if spotify_value == 'true'
+    case spotify_value
+    when 'true'
       on_spotify = true
-    elsif spotify_value == 'false'
+    when 'false'
       on_spotify = false
     else
       puts "Invalid value detected: #{spotify_value}"
@@ -86,6 +86,6 @@ class App
 
   def exit_app
     puts 'Thank you for using our application'
-    exit 
+    exit
   end
 end

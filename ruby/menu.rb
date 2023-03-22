@@ -37,7 +37,7 @@ class Menu
       when 6
         @app.exit_app
       else
-      puts 'Please choose a number between 1 and 6'
+        puts 'Please choose a number between 1 and 6'
       end
     end
   end
