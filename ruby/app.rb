@@ -2,12 +2,9 @@ require_relative './music_album'
 require_relative './genre'
 require_relative './book'
 require_relative './label'
-
 require_relative 'write_read'
-
 require_relative './game'
 require_relative './author'
-
 
 class App
   attr_reader :albums, :genres, :books, :games, :authors
@@ -17,13 +14,10 @@ class App
     @genres = []
     @books = []
     @labels = []
-
-
-    load_books
-
     @games = []
     @authors = []
 
+    load_books
   end
 
   def list_music_albums
