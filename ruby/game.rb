@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'date'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -10,6 +11,6 @@ class Game < Item
   end
 
   def can_be_archived
-    true if super && @last_played_at > 2
+    true if super && @last_played_at > Date.today - (365 * 2)
   end
 end
