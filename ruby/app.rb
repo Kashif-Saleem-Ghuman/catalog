@@ -1,12 +1,16 @@
 require_relative './music_album'
 require_relative './genre'
+require_relative './book'
+require_relative './label'
 
 class App
-  attr_reader :albums, :genres
+  attr_reader :albums, :genres, :books
 
   def initialize
     @albums = []
     @genres = []
+    @books = []
+    @labels = []
   end
 
   def list_music_albums
@@ -34,9 +38,10 @@ class App
     date = gets.chomp
     puts 'Is it on Spotify? (true/false): '
     spotify_value = gets.chomp
-    if spotify_value == 'true'
+    case spotify_value
+    when 'true'
       on_spotify = true
-    elsif spotify_value == 'false'
+    when 'false'
       on_spotify = false
     else
       puts "Invalid value detected: #{spotify_value}"
@@ -50,5 +55,49 @@ class App
     each_album = MusicAlbum.new(album_details[:date], album_details[:on_spotify])
     @albums << each_album
     puts 'Album successfully added'
+  end
+
+  def list_books
+    if @books.empty?
+      puts 'No books present'
+    else
+      @books.each do |book|
+        puts "Name: #{book.name}, Publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
+      end
+    end
+  end
+
+  def add_book
+    puts 'Please enter the name of the book: '
+    name = gets.chomp
+    puts 'Please enter the name of the publisher: '
+    publisher = gets.chomp
+    puts 'Please enter the cover state: good/bad'
+    cover_state = gets.chomp
+    if cover_state != 'good' && cover_state != 'bad'
+      puts 'Invalid cover state'
+      return
+    end
+    puts 'Please enter the publish date: '
+    date = gets.chomp
+    puts date
+    each_book = Book.new(name, publisher, cover_state, date)
+    @books << each_book
+    puts 'Book successfully added'
+  end
+
+  def exit_app
+    puts 'Thank you for using our application'
+    exit
+  end
+
+  def list_all_labels
+    if @labels.empty?
+      puts 'No labels present'
+    else
+      @labels.each do |label|
+        puts "ID: #{label.id}, Label Name: #{label.name}"
+      end
+    end
   end
 end
