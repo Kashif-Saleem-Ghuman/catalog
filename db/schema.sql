@@ -20,6 +20,20 @@ create TABLE music_album (
   on_spotify BOOLEAN,
 )
 
+CREATE TABLE game (
+    id int PRIMARY KEY,
+    item_id int FOREIGN KEY REFERENCES item(id),
+    multiplayer varchar(100),
+    last_played_at date,
+    publish_date date
+);
+
+CREATE TABLE author (
+    id int PRIMARY KEY,
+    item_id int FOREIGN KEY REFERENCES item(id),
+    first_name varchar(100),
+    last_name varchar(100)
+);
 
 
 
