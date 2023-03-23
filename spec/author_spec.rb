@@ -1,4 +1,4 @@
-require_relative 'spec_helper.rb'
+require_relative 'spec_helper'
 
 describe Author do
   before :each do
@@ -9,7 +9,7 @@ describe Author do
       expect(@new_author.first_name).to eql 'Christian'
     end
     it 'returns the correct last name' do
-        expect(@new_author.last_name).to eql 'Ani'
+      expect(@new_author.last_name).to eql 'Ani'
     end
   end
 end

@@ -10,7 +10,7 @@ class Game < Item
     @last_played_at = last_played_at
   end
 
-  def can_be_archived
-    true if super && @last_played_at > Date.today - (365 * 2)
+  def can_be_archived?
+    super && Date.today - Date.parse(@last_played_at) > (365 * 2)
   end
 end
