@@ -17,7 +17,6 @@ RSpec.describe Book do
   describe '#can_be_archived?' do
     subject { described_class.new(name, publisher, cover_state, publish_date) }
 
-
     context 'when cover_state is good' do
       let(:cover_state) { 'good' }
 
