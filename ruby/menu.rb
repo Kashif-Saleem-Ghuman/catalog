@@ -19,7 +19,8 @@ class Menu
       9 => 'Create a Book',
       10 => 'Create a Label',
       11 => 'Create a Game',
-      12 => 'Exit'
+      12 => 'Create an Author',
+      13 => 'Exit'
     }
     @lists.each do |id, option|
       puts "#{id}: #{option}"
