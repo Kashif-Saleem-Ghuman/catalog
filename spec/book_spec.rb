@@ -26,13 +26,13 @@ RSpec.describe Book do
       end
     end
 
-    # context 'when cover_state is bad' do
-    #   let(:cover_state) { 'bad' }
+    context 'when cover_state is bad' do
+      let(:cover_state) { 'bad' }
 
-    #   it 'returns true' do
-    #     expect(subject.can_be_archived?).to be true
-    #   end
-    # end
+      it 'returns true' do
+        expect(subject.can_be_archived?).to be true
+      end
+    end
 
     context 'when publish_date is 2022-01-01' do
       let(:publish_date) { '2022-01-01' }
