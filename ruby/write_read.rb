@@ -102,15 +102,15 @@ def store_game
   File.write('data/games.json', JSON.generate(game_store))
 end
 
-# def load_games
-#   return unless File.exist?('data/games.json')
+def load_games
+  return unless File.exist?('data/games.json')
 
-#   games = JSON.parse(File.read('data/games.json'))
-#   games.each do |game|
-#     game = MusicAlbum.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
-#     @games << game
-#   end
-# end
+  games = JSON.parse(File.read('data/games.json'))
+  games.each do |game|
+    game = Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
+    @games << game
+  end
+end
 
 def store_author
   author_store = @authors.map do |author|
@@ -130,7 +130,7 @@ def load_author
 
   authors = JSON.parse(File.read('data/authors.json'))
   authors.each do |author|
-    author = Genre.new(author['name'])
+    author = Author.new(author['first_name'], author['last_name'])
     @authors << author
   end
 end
