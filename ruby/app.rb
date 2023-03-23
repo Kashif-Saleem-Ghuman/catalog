@@ -175,7 +175,7 @@ class App
     f_name = gets.chomp
     puts 'Author Last Name: '
     l_name = gets.chomp
-    new_author = Author.new( f_name,  l_name )
+    new_author = Author.new(f_name, l_name)
     @authors << new_author
     puts 'Author added successfully'
     store_author
