@@ -19,7 +19,7 @@ RSpec.describe Book do
 
 
     context 'when cover_state is good' do
-      let (:cover_state) { 'good' }
+      let(:cover_state) { 'good' }
 
       it 'returns false' do
         expect(subject.can_be_archived?).to be false
