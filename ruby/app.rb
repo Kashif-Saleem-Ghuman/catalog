@@ -21,7 +21,7 @@ class App
     load_label
     load_music_album
     load_genre
-    load_games
+    # load_games
     load_author
   end
 
