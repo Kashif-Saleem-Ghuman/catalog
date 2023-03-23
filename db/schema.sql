@@ -1,6 +1,8 @@
-create DATABASE catalog;
+-- Create Database
+CREATE DATABASE catalog;
 
-create TABLE items (
+-- Create Items table
+CREATE TABLE items (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   genre INT REFERENCES genre(id),
   author INT REFERENCES author(id),
@@ -10,44 +12,38 @@ create TABLE items (
   archived BOOLEAN
 );
 
-create TABLE genre (
+-- Create Genre table
+CREATE TABLE genre (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(255)
-)
+);
 
-create TABLE music_album (
+-- Create Music Album table
+CREATE TABLE music_album (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   on_spotify BOOLEAN,
-)
+  publish_date DATE,
+  archived BOOLEAN
+);
 
+-- Create Game table
+CREATE TABLE game (
+    id int PRIMARY KEY,
+    item_id int FOREIGN KEY REFERENCES item(id),
+    multiplayer varchar(100),
+    last_played_at date,
+    publish_date date
+);
 
+-- Create Author table
+CREATE TABLE author (
+    id int PRIMARY KEY,
+    item_id int FOREIGN KEY REFERENCES item(id),
+    first_name varchar(100),
+    last_name varchar(100)
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---------------------------kashif starts here----
+-- Create Books table
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   publisher VARCHAR,
@@ -65,31 +61,3 @@ CREATE TABLE labels (
   title VARCHAR(150) NOT NULL,
   color VARCHAR(150) NOT NULL
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
