@@ -13,4 +13,33 @@ RSpec.describe Book do
       expect(subject).to be_an_instance_of(Book)
     end
   end
+
+  describe '#can_be_archived?' do
+    subject { described_class.new(name, publisher, cover_state, publish_date) }
+
+
+    context 'when cover_state is good' do
+      let (:cover_state) { 'good' }
+
+      it 'returns false' do
+        expect(subject.can_be_archived?).to be false
+      end
+    end
+
+    # context 'when cover_state is bad' do
+    #   let(:cover_state) { 'bad' }
+
+    #   it 'returns true' do
+    #     expect(subject.can_be_archived?).to be true
+    #   end
+    # end
+
+    context 'when publish_date is 2022-01-01' do
+      let(:publish_date) { '2022-01-01' }
+
+      it 'returns false' do
+        expect(subject.can_be_archived?).to be false
+      end
+    end
+  end
 end
